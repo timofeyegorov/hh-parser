@@ -1,14 +1,15 @@
 from functions import *
 import json
 
-#Название вакансии для поиска
+#Название вакансии регион для поиска
 vacancy_name = 'python-developer'
+area_id = ''
 
 # Получаем курсы валют
 rates = get_valutes()
 
 # Базовый url
-url = 'https://api.hh.ru/'
+URL = 'https://api.hh.ru/'
 
 # Исходные переменные
 min_salary = 400000 # Минимальная зарплата
@@ -29,11 +30,12 @@ for num in range(1):
     # Параметры
     params = {
         'text': f'NAME:({vacancy_name})',
+        'area': f'{area_id}',
         'page': num,
         'per_page': 100}
 
     # Получаем ответ от сервера, переводим в json формат
-    response = requests.get(url + 'vacancies', params=params)
+    response = requests.get(URL + 'vacancies', params=params)
     print(response.status_code)
     res = response.json()
     print(res)
@@ -112,7 +114,7 @@ for idx,item in enumerate(result_dict.items()):
         skip_idx += 1
 
 with open('recomendation.txt', 'w', encoding='utf-8') as f:
-    f.write(f'{key_words}')
+    f.write(f'{key_words} + \n')
 
 with open('recomendation_json.txt', 'w') as f:
     json.dump(key_words, f)
