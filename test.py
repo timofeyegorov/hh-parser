@@ -17,15 +17,12 @@
 # print(res)
 import json
 from pprint import pprint
-
-
-area_id = '1'
-
-with open('areas.txt', 'r', encoding='utf-8') as f:
-    text = f.read()
-
-AREAS = json.loads(text)
-
-for i in range(len(AREAS)):
-
-# pprint(AREAS)
+# import ast
+#
+# with open('recomendation.txt', 'r', encoding='utf-8') as f:
+#     text = f.read()
+#
+# print(text)
+# print(type(ast.literal_eval(text)))
+dd = {'1': 'Tima', '2': 'Anna'}
+print(dd[0])

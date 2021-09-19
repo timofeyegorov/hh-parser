@@ -60,5 +60,3 @@ def get_area_id(AREAS, area_name):
                 if area_name.lower() == AREAS[i]['areas'][j]['areas'][k]['name'].lower():
                     area_id = AREAS[i]['areas'][j]['areas'][k]['id']
     return area_id
-
-def get_date():

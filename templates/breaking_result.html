@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Форма поиска</title>
+        <title>Мегапарсер вакансий</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="/static/assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -38,18 +38,17 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead">
-            <h1 class="container">
+            <div class="container">
 <!--                <div class="masthead-subheading">Рады приветствовать тебя!</div>-->
-                <h1>Форма поиска</h1>
-                <br>
-                <form method="post">
-                  <div class="form-group">
-                    <input type="text" class="form-control" name="vacancy_name" placeholder="Введите название вакансии"><br>
-                    <input type="text" class="form-control" name="region" placeholder="Введите регион">
-                  </div>
-                    <br><br>
-                  <button type="submit" class="btn btn-primary btn-xl text-uppercase">Получить отчет</button>
-                </form>
+                <div class="masthead-heading text-uppercase">Подготовить отчет не удалось :(</div>
+                <div class="timeline-image">
+                    <div class="timeline-image">
+                        {% for el in result_dict %}
+                            <p>&bull; {{el}} &bull;</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="/form/">Попробовать еще раз</a>
             </div>
         </header>
 
