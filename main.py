@@ -1,9 +1,21 @@
 from functions import *
 import json
+import sys
 
-#Название вакансии регион для поиска
+# Получаем список с регионами и их id
+with open('areas.txt', 'r', encoding='utf-8') as f:
+    text = f.read()
+AREAS = json.loads(text)
+
+# Название вакансии регион для поиска
 vacancy_name = 'python-developer'
-area_id = ''
+area_name = 'Новосибирск'
+
+# Получаем id региона
+area_id = get_area_id(AREAS, area_name)
+# Если id равно 0, то такого региона нет
+if area_id == '0':
+    sys.exit('Такого региона не существует')
 
 # Получаем курсы валют
 rates = get_valutes()
@@ -114,7 +126,8 @@ for idx,item in enumerate(result_dict.items()):
         skip_idx += 1
 
 with open('recomendation.txt', 'w', encoding='utf-8') as f:
-    f.write(f'{key_words} + \n')
+    f.write(f'{key_words}')
+
 
 with open('recomendation_json.txt', 'w') as f:
     json.dump(key_words, f)

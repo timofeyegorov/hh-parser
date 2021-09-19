@@ -46,3 +46,19 @@ def count_requirements(vocabulary):
         else:
             requirements_dict[word] = 1
     return requirements_dict
+
+def get_area_id(AREAS, area_name):
+    area_id = '0'
+    for i in range(len(AREAS)):
+        # print('1.' + AREAS[i]['name'])
+        for j in range(len(AREAS[i]['areas'])):
+            # print('   2.' + AREAS[i]['areas'][j]['name'])
+            if area_name.lower() == AREAS[i]['areas'][j]['name'].lower():
+                area_id = AREAS[i]['areas'][j]['id']
+            for k in range(len(AREAS[i]['areas'][j]['areas'])):
+                # print('      3.' + AREAS[i]['areas'][j]['areas'][k]['name'])
+                if area_name.lower() == AREAS[i]['areas'][j]['areas'][k]['name'].lower():
+                    area_id = AREAS[i]['areas'][j]['areas'][k]['id']
+    return area_id
+
+def get_date():

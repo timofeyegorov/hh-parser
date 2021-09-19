@@ -17,9 +17,15 @@
 # print(res)
 import json
 from pprint import pprint
+
+
+area_id = '1'
+
 with open('areas.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 
 AREAS = json.loads(text)
 
-pprint(AREAS)
+for i in range(len(AREAS)):
+
+# pprint(AREAS)
